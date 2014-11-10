@@ -1,6 +1,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 
+#include "stm32f30x.h"
 #include "stm32f30x_rcc.h"
 
 #include "leds.h"
@@ -18,6 +19,13 @@
 float samplePeriod = 1.0f/200.0f;
 // quaternion of sensor frame relative to auxiliary frame
 float quaternion[4] = {0,0,0,-1.0f};
+
+extern volatile uint32_t TimingDelayCounter;
+void Delay(unsigned nTicks)
+{
+	TimingDelayCounter = nTicks;
+	while (TimingDelayCounter != 0);
+}
 
 /**
 * @brief	Run all demos

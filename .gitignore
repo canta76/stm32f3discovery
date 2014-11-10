@@ -35,3 +35,6 @@ bin/
 *.bak
 *.log
 *.kate-swp
+/proj/imutest/MDK-ARM/IMU.uvgui.Max
+/proj/FreeIMU/MDK-ARM/IMU.uvguix.Max
+/proj/FreeIMU/MDK-ARM/IMU.uvproj.saved_uv4

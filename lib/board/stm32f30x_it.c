@@ -30,8 +30,8 @@
 /* Includes ------------------------------------------------------------------*/
 
 #include "stm32f30x_it.h"
-#include <stm32f30x_rcc.h>
-#include <stm32f30x.h>
+#include "stm32f30x_rcc.h"
+#include "stm32f30x.h"
 
 
 /** @addtogroup STM32F3-Discovery_Demo
@@ -143,13 +143,14 @@ void PendSV_Handler(void)
   * @param  None
   * @retval None
   */
+volatile uint64_t SysTickCount;
+volatile uint32_t TimingDelayCounter;
+
 void SysTick_Handler(void)
 {	
-	// in board.c
-	volatile extern uint64_t SysTickCount;
+	
+	
 	SysTickCount++;	
-	// in board.c	
-	volatile extern uint32_t TimingDelayCounter;
 	if (TimingDelayCounter != 0x00)
 	{ 
 		TimingDelayCounter--;
